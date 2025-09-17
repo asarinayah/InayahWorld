@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Form</title>
+</head>
+<body>
+    <h1>Submit a Post</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ forms.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Saved Posts:</h2>
+    {% if posts %}
+        <div style="margin-bottom: 20px;">
+            <strong>Title:</strong> {{ posts.title }}<br>
+            <strong>Content:</strong> {{ posts.content }}
+        </div>
+    {% else %}
+        <p>No posts yet.</p>
+    {% endif %}
+</body>
+</html>
