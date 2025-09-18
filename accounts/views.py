@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.http import HttpResponse
 
 # Create your views here.
 def login(request):
@@ -20,3 +21,6 @@ def login(request):
 @login_required
 def dashboard(request):
     return render()
+
+def helloworld(request):
+    return HttpResponse("hello world")
